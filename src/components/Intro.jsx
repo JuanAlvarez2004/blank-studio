@@ -4,7 +4,6 @@ import { SplitText } from "gsap/SplitText"
 import { useRef, useState } from "react"
 import BallCursor from "./BallCursor"
 import InkButton from "./InkButton"
-import { ArrowDownRight } from "lucide-react"
 
 gsap.registerPlugin(SplitText)
 
@@ -16,6 +15,7 @@ function Intro() {
     const titleBrand = new SplitText("#intro-title", { type: "chars" })
     const chasingCursor = document.querySelector("#chasing-cursor")
     const introText = document.querySelector("#intro-text")
+    const inkButton = document.querySelector("#ink-button")
 
     const underScoreRect = titleBrand.chars[titleBrand.chars.length - 1].getBoundingClientRect()
     const recPoint = chasingCursor.getBoundingClientRect()
@@ -48,6 +48,12 @@ function Intro() {
         duration: 0.2,
         ease: "power2.out",
       }, "<")
+      .from(inkButton, {
+        alpha: 0,
+        scale: 0.8,
+        duration: 0.2,
+        ease: "power2.out",
+      }, "<")
 
   }, [])
 
@@ -59,12 +65,13 @@ function Intro() {
           <small className="m-0 p-5 leading-none text-[11px] font-bold">R</small>
         </div>
         <small className="text-gray-600 text-center" id="intro-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi adipisci dolore qui maxime, pariatur esse libero, amet doloremque repudiandae sequi architecto corporis neque nobis, odio quos totam? Officia, iste.</small>
-        <InkButton ballCursorRef={ballCursorRef}>
-          <div className="flex items-center gap-1">
-            <span className="flex-2 font-family-oswald text-l bg-transparent p-0 m-0">Enter</span>
-            {/* <ArrowDownRight className="flex-1" color="black" /> */}
-          </div>
-        </InkButton>
+        <div id="ink-button">
+          <InkButton ballCursorRef={ballCursorRef}>
+            <div className="flex items-center gap-1">
+              <span className="flex-2 font-family-oswald text-lg bg-transparent p-0 m-0">Enter</span>
+            </div>
+          </InkButton>
+        </div>
       </div>
       <BallCursor ref={ballCursorRef} positionInitialCursor={positionInitialCursor} />
     </section>

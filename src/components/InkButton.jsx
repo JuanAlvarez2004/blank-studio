@@ -8,13 +8,7 @@ gsap.registerPlugin(Physics2DPlugin);
 const InkButton = ({ 
   children = "Click Me!", 
   className = "",
-  ballCursorRef = null,
-  // Configuración de colores (invertidos por defecto)
-  initialBgColor = "white",
-  initialTextColor = "black", 
-  hoverBgColor = "black",
-  hoverTextColor = "white",
-  particleColor = "black"
+  ballCursorRef = null 
 }) => {
   const buttonRef = useRef(null);
   const buttonHoverRef = useRef(null);
@@ -32,27 +26,21 @@ const InkButton = ({
 
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
-      particle.className = 'ink-particle';
+      particle.className = 'ink-particle absolute bg-black rounded-full pointer-events-none z-[6] opacity-80';
 
       // Tamaño aleatorio para las partículas
       const size = Math.random() * 8 + 4;
-      
-      // Configurar estilos directamente como en el HTML que funciona
-      particle.style.position = 'absolute';
-      particle.style.backgroundColor = particleColor;
-      particle.style.borderRadius = '50%';
-      particle.style.pointerEvents = 'none';
-      particle.style.zIndex = '6';
-      particle.style.opacity = '0.8';
-      particle.style.width = size + 'px';
-      particle.style.height = size + 'px';
-      particle.style.left = startX + 'px';
-      particle.style.top = startY + 'px';
+      particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${startX}px;
+        top: ${startY}px;
+      `;
 
       buttonContainerRef.current.appendChild(particle);
       particles.push(particle);
 
-      // Physics2D con parámetros aleatorios para simular gravedad 
+      // Physics2D con parámetros aleatorios para simular tinta salpicando
       const angle = Math.random() * 360;
       const velocity = Math.random() * 150 + 50;
       const gravity = Math.random() * 200 + 100;
@@ -77,7 +65,6 @@ const InkButton = ({
 
   // Función para limpiar partículas
   const cleanupParticles = () => {
-    // Limpiar partículas del estado
     setInkParticles(prevParticles => {
       prevParticles.forEach(particle => {
         if (particle.parentNode) {
@@ -114,7 +101,7 @@ const InkButton = ({
     });
 
     gsap.set(buttonTextRef.current, {
-      color: initialTextColor
+      color: 'black'
     });
 
     if (ballCursorRef && ballCursorRef.current) {
@@ -167,7 +154,7 @@ const InkButton = ({
     currentTimelineRef.current.to(buttonHoverRef.current, {
       scale: 3,
       duration: 0.1,
-      backgroundColor: hoverBgColor,
+      backgroundColor: 'black',
       ease: "power3.out"
     })
       // Expansión principal más fluida
@@ -185,7 +172,7 @@ const InkButton = ({
     }
 
     currentTimelineRef.current.to(buttonTextRef.current, {
-        color: hoverTextColor,
+        color: 'white',
         fontStyle: 'italic',
         duration: 0.4,
       }, "0.2");
@@ -252,7 +239,7 @@ const InkButton = ({
     }
 
     currentTimelineRef.current.to(buttonTextRef.current, {
-        color: initialTextColor,
+        color: 'black',
         duration: 0.3,
         fontStyle: 'normal'
       }, "0");
@@ -276,10 +263,8 @@ const InkButton = ({
 
   const handleMouseOver = () => {
     // Verificar si el estado está inconsistente y corregirlo
-    const currentColor = getComputedStyle(buttonTextRef.current).color;
-    const expectedInitialColor = initialTextColor === 'white' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
-    
-    if (!isHovering && buttonTextRef.current && currentColor !== expectedInitialColor) {
+    if (!isHovering && buttonTextRef.current && 
+        getComputedStyle(buttonTextRef.current).color === 'rgb(255, 255, 255)') {
       resetButtonState();
     }
   };
@@ -300,24 +285,22 @@ const InkButton = ({
   return (
     <div 
       ref={buttonContainerRef}
-      className={`relative rounded-xl flex justify-center items-center overflow-hidden bg-transparent ${className}`}
+      className={`relative rounded-xl border-1 flex justify-center items-center overflow-hidden px-6 ${className}`}
     >
       <button
         ref={buttonRef}
-        className="px-6 py-1 rounded-xl border-none relative flex items-center justify-center z-10 hover:cursor-crosshair whitespace-nowrap"
-        style={{ backgroundColor: initialBgColor }}
+        className="py-1 rounded-xl border-none relative w-full h-full bg-transparent flex items-center justify-center z-10 hover:cursor-crosshair"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseOver={handleMouseOver}
       >
         <div
           ref={buttonHoverRef}
-          className="absolute bg-transparent pointer-events-none rounded-full z-[5] p-1 top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[10px] h-[10px]"
+          className="absolute bg-transparent pointer-events-none rounded-full z-[5] w-2.5 h-2.5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
         <span
           ref={buttonTextRef}
-          className="relative z-20"
-          style={{ color: initialTextColor }}
+          className="w-full relative z-20"
         >
           {children}
         </span>
