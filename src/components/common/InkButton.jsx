@@ -285,11 +285,11 @@ const InkButton = ({
   return (
     <div 
       ref={buttonContainerRef}
-      className={`relative rounded-xl border-1 flex justify-center items-center overflow-hidden px-6 ${className}`}
+      className={`relative border-1 flex justify-center items-center overflow-hidden ${className}`}
     >
       <button
         ref={buttonRef}
-        className="py-1 rounded-xl border-none relative w-full h-full bg-transparent flex items-center justify-center z-10 hover:cursor-crosshair"
+        className="py-1 px-6 border-none relative w-full h-full bg-transparent flex items-center justify-center z-10 hover:cursor-crosshair"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseOver={handleMouseOver}

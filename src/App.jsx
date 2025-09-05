@@ -1,12 +1,16 @@
-import Intro from "./components/Intro"
-import InkButtonDemo from "./components/InkButtonDemo"
+import { BrowserRouter, Route, Routes } from "react-router"
+import Intro from "./pages/Intro"
+import Index from "./pages/Index"
 
 function App() {
-
+  
   return (
-    <div className="min-h-screen">
-      <Intro />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route path="/index" element={<Index />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
