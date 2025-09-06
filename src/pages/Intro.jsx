@@ -65,7 +65,7 @@ function Intro() {
 
   return (
     <section className="grid place-items-center min-h-screen">
-      <div className="relative flex flex-col items-center gap-8 max-w-xl">
+      <div className="relative flex flex-col items-center gap-8 max-w-md md:max-w-xl px-5">
         <h1 id="intro-title" className="font-family-oswald text-8xl select-none">blank_</h1>
         <div id="chasing-cursor" className="absolute p-0 m-0 w-4 h-4 bg-transparent border-2 border-black rounded-full flex items-center justify-center select-none">
           <small className="m-0 p-5 leading-none text-[11px] font-bold">R</small>
