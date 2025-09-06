@@ -60,7 +60,7 @@ function Intro() {
         alpha: 0,
         ease: "power2.inOut",
         duration: 0.8,
-      }, "+=0.5")
+      }, "-=0.25")
       .to(introTitle, { // Center "blank_" horizontally
         x: containerTitleRef.current ? containerTitleRef.current.offsetWidth / 2 - introTitle.offsetWidth / 2 : 0,
         ease: "power2.inOut",

@@ -2,7 +2,7 @@ import { useRef, forwardRef, useImperativeHandle } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-const BallCursor = forwardRef(({ positionInitialCursor }, ref) => {
+const BallCursor = forwardRef(({ positionInitialCursor = { left: 0, top: 0, width: 0, height: 0 } }, ref) => {
   const ballCursorRef = useRef(null);
 
   useImperativeHandle(ref, () => ballCursorRef.current);
@@ -43,7 +43,6 @@ const BallCursor = forwardRef(({ positionInitialCursor }, ref) => {
     <div
       ref={ballCursorRef}
       className={`fixed w-4 h-4 rounded-full pointer-events-none z-50 top-0 left-0`}
-      
     />
   );
 });
