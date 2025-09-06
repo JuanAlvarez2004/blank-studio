@@ -12,16 +12,16 @@ gsap.registerPlugin(SplitText)
 function Intro() {
   const ballCursorRef = useRef(null)
   const [positionInitialCursor, setPositionInitialCursor] = useState(null)
-  const fontsLoaded = useFontLoading(['400 1em Oswald', '700 1em Oswald'])
+  const fontsLoaded = useFontLoading(['1em Oswald', '1em Lato'])
 
 
   useGSAP(() => {
     if (!fontsLoaded) return
 
     const titleBrand = new SplitText("#intro-title", { type: "chars" })
-    const chasingCursor = document.querySelector("#chasing-cursor")
-    const introText = document.querySelector("#intro-text")
-    const inkButton = document.querySelector("#ink-button")
+    const chasingCursor = document.getElementById("chasing-cursor")
+    const introText = document.getElementById("intro-text")
+    const inkButton = document.getElementById("ink-button")
 
     const underScoreRect = titleBrand.chars[titleBrand.chars.length - 1].getBoundingClientRect()
     const recPoint = chasingCursor.getBoundingClientRect()

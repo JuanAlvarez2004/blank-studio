@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 /**
  * Hook para verificar si las fuentes están cargadas
- * @param {string[]} fonts - Array de fuentes a verificar (ej: ['400 1em Oswald', '700 1em Oswald'])
+ * @param {string[]} fonts - Array de fuentes a verificar (ej: ['1em Oswald', '1em Lato'])
  * @param {number} timeout - Tiempo límite en ms para esperar las fuentes (default: 3000)
  * @returns {boolean} - true si las fuentes están cargadas
  */
-export function useFontLoading(fonts = ['400 1em Oswald'], timeout = 3000) {
+export function useFontLoading(fonts = ['1em Oswald', '1em Lato'], timeout = 3000) {
   const [fontsLoaded, setFontsLoaded] = useState(false)
 
   useEffect(() => {

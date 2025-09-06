@@ -37,4 +37,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*", // Catch-all route para 404
+    element: <NotFound />,
+  },
 ]);
