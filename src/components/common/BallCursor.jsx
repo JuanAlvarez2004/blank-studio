@@ -17,7 +17,7 @@ const BallCursor = forwardRef(({ positionInitialCursor }, ref) => {
 
       gsap.to(ballCursorRef.current, {
         backgroundColor: 'black',
-        duration: .7,
+        duration: .4,
         onComplete: () => {
           document.addEventListener('mousemove', handleMouseMove);
         }
