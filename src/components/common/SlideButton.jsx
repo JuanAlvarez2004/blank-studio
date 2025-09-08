@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import gsap from "gsap";
 import { useRef } from "react";
 
-export default function SlideButton({ toLocation = "/", content = "Click", style = {} }) {
+export default function SlideButton({ content = "Click", style = {} }) {
   const buttonRef = useRef(null)
   const containerRef = useRef(null)
   const twinRef = useRef(null)
@@ -63,14 +63,12 @@ export default function SlideButton({ toLocation = "/", content = "Click", style
   }
 
   return (
-      <Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} to={toLocation} style={style}>
-        <div ref={containerRef} id="btn-container" className="gap-3 relative overflow-hidden border-b-2">
-          <button ref={buttonRef} id="back-btn" className="py-1 flex gap-3 relative cursor-crosshair">
-            <span className="font-family-lato text-md whitespace-nowrap">
-              {content}
-            </span>
-          </button>
-        </div>
-      </Link>
+    <div ref={containerRef} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={style} id="btn-container" className="gap-3 relative overflow-hidden border-b-2">
+      <button ref={buttonRef} id="back-btn" className="py-1 flex gap-3 relative cursor-crosshair">
+        <span className="font-family-lato text-md whitespace-nowrap">
+          {content}
+        </span>
+      </button>
+    </div>
   )
 }
