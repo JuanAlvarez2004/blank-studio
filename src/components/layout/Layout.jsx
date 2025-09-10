@@ -10,7 +10,7 @@ export default function Layout() {
   const ballCursorRef = useRef(null)
 
   return (
-    <div className="font-family-lato min-h-dvh flex flex-col">
+    <div className="font-family-lato min-h-dvh min-w-dvw flex flex-col overflow-x-hidden">
       <Header />
 
       <main className="flex-grow">
@@ -19,10 +19,6 @@ export default function Layout() {
         <Services />
         <Contact />
       </main>
-
-      {/* <footer className="font-family-lato text-end p-4">
-        <p>&copy; 2025 Blank Studio. Todos los derechos reservados.</p>
-      </footer> */}
 
       <BallCursor ref={ballCursorRef} />
     </div>

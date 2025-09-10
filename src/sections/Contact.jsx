@@ -1,5 +1,8 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Contact() {
 
@@ -36,11 +39,11 @@ export default function Contact() {
 
   return (
     <section id="contact-section" className="min-h-screen relative px-5 overflow-hidden">
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-5 z-20">
-        <h2 id="first-contact-title" className="font-family-oswald text-[17rem] leading-none line-through">Contact</h2>
-        <h2 id="second-contact-title" className="font-family-oswald text-[17rem] leading-none line-through">me</h2>
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+        <h2 id="first-contact-title" className="font-family-oswald text-9xl md:text-[16rem] leading-none line-through">Contact</h2>
+        <h2 id="second-contact-title" className="font-family-oswald text-9xl md:text-[16rem] leading-none line-through">me</h2>
       </div>
-      <div className="absolute inset-0 -bottom-10 flex flex-col items-center justify-center px-5 z-10">
+      <div className="hidden absolute inset-0 -bottom-10 md:flex items-center justify-center z-10">
         <img id="contact-img" src="../../images/reaching.jpg" className="scale-50" />
       </div>
       <div className="absolute inset-0 backdrop-blur-md z-20"></div>
