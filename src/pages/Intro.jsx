@@ -106,11 +106,11 @@ function Intro() {
         <div id="chasing-cursor" className="absolute p-0 m-0 w-4 h-4 bg-transparent border-2 border-black rounded-full flex items-center justify-center select-none">
           <small className="m-0 p-5 leading-none text-[11px] font-bold">R</small>
         </div>
-        <small className="text-gray-600 text-center" id="intro-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi adipisci dolore qui maxime, pariatur esse libero, amet doloremque repudiandae sequi architecto corporis neque nobis, odio quos totam? Officia, iste.</small>
+        <small className="text-gray-600 text-center" id="intro-text">Estudio digital especializado en crear experiencias web excepcionales. Transformamos ideas en realidad digital con un enfoque minimalista, funcional y centrado en el usuario.</small>
         <Link to="/app" id="ink-button">
           <InkButton ballCursorRef={ballCursorRef}>
             <div className="flex items-center gap-1">
-              <span className="flex-2 font-family-oswald text-lg bg-transparent p-0 m-0">Enter</span>
+              <span className="flex-2 font-family-oswald text-lg bg-transparent p-0 m-0">Entrar</span>
             </div>
           </InkButton>
         </Link>

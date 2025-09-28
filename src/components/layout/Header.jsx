@@ -41,16 +41,16 @@ export default function Header() {
       <nav>
         <ul className="list-none gap-3 p-10 text-4xl w-full">
           <li>
-            <AnchorMenu href="#home-section" content="Home" />
+            <AnchorMenu href="#home-section" content="Inicio" />
           </li>
           <li>
-            <AnchorMenu href="#about-section" content="About" />
+            <AnchorMenu href="#about-section" content="Acerca" />
           </li>
           <li>
-            <AnchorMenu href="#services-section" content="Services" />
+            <AnchorMenu href="#services-section" content="Servicios" />
           </li>
           <li>
-            <AnchorMenu href="#contact-section" content="Contact" />
+            <AnchorMenu href="#contact-section" content="Contacto" />
           </li>
         </ul>
       </nav>

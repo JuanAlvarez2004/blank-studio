@@ -52,12 +52,12 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services-section" className="min-h-96 px-5 md:pl-5 overflow-hidden mb-0 mt-10 md:mt-30 md:mb-10 flex flex-col">
+    <section id="services-section" className="min-h-96 px-5 md:pl-5 overflow-hidden mb-0 mt-10 flex flex-col">
       <div className="relative flex-2 flex flex-col lg:flex-row gap-4">
-        <div className="flex-1 font-family-lato flex justify-center flex-col">
-          <h2 className="text-8xl font-family-oswald line-through">Services</h2>
+        <div className="ml-10 flex-1 font-family-lato flex justify-center flex-col">
+          <h2 className="text-9xl font-family-oswald line-through">Servicios</h2>
           <p className="text-sm mt-3">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cumque officia ut sequi. A aspernatur in, nostrum commodi minima laboriosam dolore eos repellendus corporis error possimus perferendis veniam sed exercitationem. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione ullam doloremque cupiditate, architecto saepe corporis, perferendis aliquid magni maxime voluptas expedita facilis inventore nesciunt aut. Provident iste obcaecati non illo.
+            Ofrezco soluciones digitales integrales que transforman ideas en experiencias web excepcionales. Mi enfoque especializado incluye desarrollo web frontend con tecnologías modernas, diseño UX/UI centrado en el usuario, animaciones web interactivas con GSAP, branding digital coherente, optimización de rendimiento web y consultoría en experiencia digital para maximizar el impacto de tu presencia online.
           </p>
         </div>
         <div id="container-bars" className="relative flex justify-center -z-10 flex-1 pointer-events-none overflow-hidden">
