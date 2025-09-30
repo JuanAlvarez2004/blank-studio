@@ -29,19 +29,13 @@ export default function Contact() {
         alpha: 0,
         duration: 1
       }, "<")
-      .from("#contact-box", {
-        scale: 0.8,
-        alpha: 0,
-        duration: 1
-      }, "<")
-
   })
 
 
   return (
     <section id="contact-section" className="min-h-screen relative px-5 overflow-hidden">
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-        <h2 id="first-contact-title" className="font-family-oswald text-9xl md:text-[16rem] leading-none line-through">Contáctame</h2>
+        <h2 id="first-contact-title" className="font-family-oswald text-8xl md:text-[16rem] leading-none line-through">Contáctame</h2>
       </div>
       <div className="hidden absolute inset-0 -bottom-10 md:flex items-center justify-center z-10">
         <img id="contact-img" src="../../images/reaching.jpg" className="scale-50" />
