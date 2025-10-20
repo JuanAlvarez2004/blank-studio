@@ -52,7 +52,7 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services-section" className="min-h-96 md:pl-5 overflow-hidden mb-0 mt-10 flex flex-col">
+    <section id="services-section" className="min-h-96 px-5 md:px-0 md:pl-5 overflow-hidden mb-0 mt-10 flex flex-col">
       <div className="relative flex-2 flex flex-col lg:flex-row gap-4">
         <div className="md:ml-10 flex-1 font-family-lato flex justify-center flex-col">
           <h2 className="text-8xl md:text-9xl font-family-oswald line-through">Servicios</h2>
