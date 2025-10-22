@@ -8,6 +8,7 @@ import Contact from "../../sections/Contact";
 import { ReactLenis } from 'lenis/react'
 import { useEffect } from "react";
 import gsap from "gsap";
+import Portfolio from "../../sections/Portfolio";
 
 export default function Layout() {
   const ballCursorRef = useRef(null)
@@ -33,8 +34,13 @@ export default function Layout() {
           <Home />
           <About />
           <Services />
+          <Portfolio />
           <Contact />
         </main>
+
+        <footer className="text-center p-4 text-sm bg-black text-white">
+          &copy; 2025 Blank Studio Co. Todos los derechos reservados.
+        </footer>
 
         <BallCursor ref={ballCursorRef} />
       </div>

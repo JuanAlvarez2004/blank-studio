@@ -7,24 +7,24 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function About() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
-  
+
   useGSAP(() => {
     if (!isMobile) {
       const tlDesktop = gsap.timeline({
         scrollTrigger: {
           trigger: "#about-section",
           start: "top bottom",
-          end: "bottom top",
+          end: "center bottom",
           scrub: true,
         },
       })
 
-      // Animación de entrada (0% - 50% del scroll)
-      tlDesktop.from("#about-part-1", {
-        y: -400,
-        alpha: 0,
-        duration: 1.5,
-      })
+      tlDesktop
+        .from("#about-part-1", {
+          y: -400,
+          alpha: 0,
+          duration: 1.5,
+        })
         .from("#about-part-2", {
           y: 400,
           alpha: 0,
@@ -39,55 +39,22 @@ export default function About() {
           alpha: 0,
           duration: 1.5,
         }, "<")
-
-      // Pausa en el estado visible (50% - 60% del scroll)
-      tlDesktop.to("#about-part-1", {
-        y: 0,
-        alpha: 1,
-        duration: 0.5,
-      })
-        .to("#about-part-3", {
-          y: 0,
-          alpha: 1,
-          duration: 0.5,
-        })
-
-      // Animación de salida (60% - 100% del scroll)
-      tlDesktop.to("#about-part-1", {
-        y: 400,
-        alpha: 0,
-        duration: 1.5,
-      })
-        .to("#about-part-2", {
-          y: -400,
-          alpha: 0,
-          duration: 1.5,
-        }, "<")
-        .to("#about-part-3", {
-          y: 400,
-          alpha: 0,
-          duration: 1.5,
-        }, "<")
-        .to("#about-title", {
-          alpha: 0,
-          duration: 1.5,
-        }, "<")
     } else {
       const tlMobile = gsap.timeline({
         scrollTrigger: {
           trigger: "#about-section",
           start: "top bottom",
-          end: "bottom top",
+          end: "center bottom",
           scrub: true,
         },
       })
 
-      // Animación de entrada (0% - 50% del scroll)
-      tlMobile.from("#about-part-1-text", {
-        y: 300,
-        alpha: 0,
-        duration: 1.5,
-      })
+      tlMobile
+        .from("#about-part-1-text", {
+          y: 300,
+          alpha: 0,
+          duration: 1.5,
+        })
         .from("#about-part-2", {
           y: 300,
           alpha: 0,
@@ -103,28 +70,6 @@ export default function About() {
           alpha: 0,
           duration: 1.5,
         }, "<")
-
-      // Pausa en el estado visible (50% - 60% del scroll)
-      tlMobile.to("#about-part-1-text", {
-        y: 0,
-        alpha: 1,
-        duration: 0.5,
-      })
-        .to("#about-part-3-text", {
-          y: 0,
-          alpha: 1,
-          duration: 0.5,
-        })
-        .to("#about-part-2", {
-          y: 0,
-          alpha: 1,
-          duration: 0.5,
-        })
-        .to("#about-title", {
-          y: 0,
-          alpha: 1,
-          duration: 0.5,
-        })
     }
   }, [])
 
@@ -144,7 +89,7 @@ export default function About() {
       <div className="flex-1 px-4 lg:px-8 z-20">
         <div id="about-part-2" className="h-80 md:h-full relative">
           <div className="absolute inset-0 w-full h-full grid place-content-center">
-            <div id="about-title" className="font-family-oswald text-8xl md:text-[14rem] text-black line-through z-30">Acerca</div>
+            <div id="about-title" className="font-family-oswald text-7xl md:text-[14rem] text-black line-through z-30">Acerca</div>
           </div>
           <div className="w-full h-full opacity-95 md:opacity-100 md:contrast-150">
             <img src="../../images/part-2-about.jpg" className="object-cover w-full h-full grayscale" />

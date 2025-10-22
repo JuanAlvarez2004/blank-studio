@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import SlideButton from "../components/common/SlideButton"
 
 export default function Home() {
   useGSAP(() => {
@@ -41,7 +42,9 @@ export default function Home() {
         <div className="font-family-lato lg:col-start-2 lg:row-start-1 flex justify-center lg:justify-start items-start lg:items-end">
           <div className="flex flex-col justify-center w-md">
             <div id="top-bar" className=" bg-black h-4 mb-5"></div>
-            <span id="body-text" className="font-family-lato text-center text-md">Estudio digital especializado en crear experiencias web excepcionales. Desde desarrollo frontend hasta animaciones interactivas, transformamos ideas en realidad digital con un enfoque minimalista y funcional.</span>
+            <a id="body-text" className="font-family-lato text-center text-md cursor-crosshair" href="#services-section">
+              <SlideButton secondContent="Conoce nuestros servicios" style={{ borderBottom: "0" }} content="Estudio digital especializado en crear experiencias web excepcionales. Desde desarrollo frontend hasta animaciones interactivas, transformamos ideas en realidad digital con un enfoque minimalista y funcional." />
+            </a>
             <div id="bottom-bar" className=" bg-black h-4 mt-5"></div>
           </div>
         </div>
