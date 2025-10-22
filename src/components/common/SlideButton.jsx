@@ -1,8 +1,7 @@
-import { Link } from "react-router";
 import gsap from "gsap";
 import { useRef } from "react";
 
-export default function SlideButton({ content = "Click", style = {} }) {
+export default function SlideButton({ content = "Click", style = {}, secondContent = null }) {
   const buttonRef = useRef(null)
   const containerRef = useRef(null)
   const twinRef = useRef(null)
@@ -10,12 +9,25 @@ export default function SlideButton({ content = "Click", style = {} }) {
   const handleMouseEnter = () => {
     if (twinRef.current) return; // Evitar crear múltiples clones
 
+    // Obtener las dimensiones del botón original
+    // const originalRect = buttonRef.current.getBoundingClientRect()
+    // console.log(originalRect.width)
+
     // Crear el clon del botón
-    const twin = buttonRef.current.cloneNode(true)
+    const twin = buttonRef.current.querySelector('span').cloneNode(true)
     twin.style.position = 'absolute'
-    twin.style.top = '0'
-    twin.style.left = '0'
-    twin.style.width = '100%'
+
+    if (secondContent) {
+      twin.textContent = secondContent
+      twin.style.display = 'grid'
+      twin.style.placeContent = 'center'
+      twin.style.inset = '0'
+      twin.style.fontFamily = 'Oswald, sans-serif'
+      twin.style.fontSize = '2.4rem'
+    } else {
+      twin.style.top = '0'
+      twin.style.left = '0'
+    }
 
     containerRef.current.appendChild(twin)
     twinRef.current = twin
@@ -64,11 +76,11 @@ export default function SlideButton({ content = "Click", style = {} }) {
 
   return (
     <div ref={containerRef} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={style} id="btn-container" className="gap-3 relative overflow-hidden border-b-2">
-      <button ref={buttonRef} id="back-btn" className="py-1 flex gap-3 relative cursor-crosshair">
-        <span className="font-family-lato text-md whitespace-nowrap">
+      <div ref={buttonRef} id="back-btn" className="py-1 flex gap-3 relative cursor-crosshair">
+        <span className="font-family-lato">
           {content}
         </span>
-      </button>
+      </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ export default function AnchorMenu({ href, content }) {
   const currentHash = useLocationHash()
 
   return (
-    <a href={href}>
+    <a className="cursor-crosshair" href={href}>
       <SlideButton content={content}
         style={{
           fontWeight: currentHash === href.substring(1) ? 'bold' : 'normal',
